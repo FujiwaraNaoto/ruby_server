@@ -1,0 +1,22 @@
+#ruby -Ku
+
+
+class Car
+    def setName(str)
+        @name=str
+    end
+
+    def dispName()
+        print(@name,"\n")
+    end
+end
+
+
+car1=Car.new() #インスタンスcar1の作成
+car1.setName("crown")
+
+car2=Car.new()
+car2.setName("civic")
+
+car1.dispName()#crown
+car2.dispName()#civic

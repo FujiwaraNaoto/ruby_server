@@ -1,0 +1,30 @@
+<div style="text-align:center">
+<h1>Twitter liked </h1>
+</div>
+
+<div style="text-align:right">
+<p><a href="/twitter_search"><font color="white">Go back to the Twitter account list page</font></a></p>
+</div> 
+<%= Time.now.to_s %>
+
+    <table border="1">
+    <tr><p>
+        <td>account name</td>
+        <td>tweet url</td>
+        <td>content</td>
+        <td>tweet time</td>
+    </p></tr>
+
+    <% @user_twitter_like_list.each do |fav| %>
+        <% account_name = "@"+fav.user.screen_name %>
+        <% tweet_url =fav.url.origin+"/"+fav.user.screen_name+"/"+"status"+"/"+fav.id.to_s %>
+        <% content = fav.full_text %>
+        <% tweet_time = fav.created_at %>
+        <% account_id = @user_id %>
+        <td><%= account_name %></td><!-- account name -->
+        <td><%= tweet_url %></td><!-- tweet_url -->
+        <td><%= content %></td><!-- content -->
+        <td><%= tweet_time %></td><!-- tweet time -->
+        </p></tr>
+    <% end %>
+

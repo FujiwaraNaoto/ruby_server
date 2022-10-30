@@ -1,0 +1,99 @@
+<!--
+checkboxでチェックした内容を
+配列でpostで返す
+https://teratail.com/questions/317310
+
+まあ,アカウントのデータベースでprimaryを作れば解決するかな
+-->
+
+<style>
+
+
+    #account_list{
+    margin: auto
+    }
+    #select_button{
+        margin: auto
+    }
+
+</style>
+
+
+<div style="text-align:center"><h1>Twitter</h1></div>
+
+<div style="text-align:center"><h2>Username:<%= @user_login_name_twitter %></h2></div>
+
+
+<div style="text-align:right">
+<a href="/login_success"><font color="white">Go back to Menu page</font></a>
+</div>
+
+
+
+<% db = SQLite3::Database.new('/home/naoto/workspace/userdata.db') %> 
+<% sql = "select * from apitable where id=?;" %>
+<% twitter_account_information = db.execute(sql,@user_login_id_twitter)%>
+<% db.close %>
+
+<!--このwebサイトにはログインが可能だが,twitterのアカウントがない場合-->
+<% if twitter_account_information.empty? then %>
+    <div style="text-align:center">It seems you haven't registered your twitter account....</div>
+    <div style="text-align:center"><a href="/register_twitter_account"><font color="white">Register your Twitter account</font></a></div>
+
+<% else %>
+    <p><a href="/register_twitter_account"><font color="white">Do you wannna add another account?</font></a></p>
+        
+        
+    <div style="text-align:center">
+        select your twitter account and clike "Like","All like" or "Time line" button.
+    </div>
+
+   
+    <form action="/twitter_operate" method="post">
+
+        <table id="account_list" border="1">
+            <tr><p>
+                <td>select</td>
+                <td>account name</td>
+                <td>api key</td>
+                <td>api secret</td>
+                <td>token</td>
+                <td>token secret</td>
+            </p></tr>
+            <!--twitter account nameで管理 -->
+            
+            <% @twitter_api_list.each do |row| %>
+                <tr><p> 
+                <td><input type="radio" id="b" name="id" value="<%=row[0] %>"></td>
+                <td><%= row[2] %></td><!-- account name -->
+                <td><%= row[3] %></td><!-- api key -->
+                <td><%= row[4] %></td><!-- api secret -->
+                <td><%= row[5] %></td><!-- token -->
+                <td><%= row[6] %></td><!-- token -->
+                </p></tr>
+            <% end %>
+            <% db.close %>
+        </table>
+        
+        <table id="select_button">
+        <tr>
+        <td>
+        <button type="submit" name="button" value="like_button">Like</button> <!--いいねボタン-->
+        </td>
+
+        <td>
+        <button type="submit" name="button" value="all_like_button">All like</button> <!--いいねボタン-->
+        </td>
+
+        <td>
+        <button type="submit" name="button" value="Time_line_button">Time Line</button> <!--いいねボタン-->
+        </td>
+        </tr>
+        </table>
+    
+    </form>
+
+<% end %>
+
+
+

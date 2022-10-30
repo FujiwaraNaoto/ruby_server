@@ -1,0 +1,86 @@
+
+<div style="text-align:center">
+<h1>Bulletin Board</h1>
+</div>
+
+
+<div style="text-align:right">
+<a href="/login_success"><font color="white">Go back to Menu page</font></a>
+</div>
+
+
+<div style="text-align:center">
+  Comment log
+</div>
+<!--
+https://techacademy.jp/magazine/25158
+overflow-y: scroll; 
+-->
+
+
+<head>
+  <meta charset="utf-8" />
+  <title>sample</title>
+  <style>
+    #wrapper {
+      height: 300px;
+      width: 1000px;
+      overflow-y: scroll;
+
+      margin :auto
+    }
+
+    #contents {
+      
+      background-color: white;
+    }
+
+    .bulletin_board{
+      margin :auto
+    }
+
+  </style>
+</head>
+
+
+  <body>
+    <div id="wrapper">
+      <div id="contents">
+          <% @bulletin_board_content.each do |content| %>
+          <!-- h(content[4]) はサニタイジング対策-->
+          
+              <p><%= content[2] %>:<%=content[3] %>:<%= h(content[4]) %></p>
+            
+            <!--サニタイジング処理ないver-->
+            <% if false %>
+              <p><%= content[2] %>:<%=content[3] %>:<%= content[4] %></p>
+              <% end %>
+          <% end %>
+      </div>
+    </div>
+  </body>
+  
+
+
+  
+  <div style="text-align:center">
+    <p>You can post comments</p>
+    <h3>Attention!</h3>
+    <h5>Comments that makes fun of someone,relatead to war or sensitive contents are prohibited.</h5>
+    <h5>If managers find them, those comments will be deleted.</h5>
+  </div>
+
+  
+  <form action="/bulletin_submit" method="post">
+      <div style="text-align:center">
+      Username:<%= @user_name %>
+      </div>
+      <input type="hidden" name="user_name" value="<%= @user_name %>">
+      <input type="hidden" name="user_id" value="<%= @user_login_id %>">
+      
+      <div style="text-align:center">
+      <textarea name="comment" cols="30" rows="5"></textarea></p>
+      </div>
+      <div style="text-align:center"><button type="submit">submit</button> </div>
+  
+  </form>

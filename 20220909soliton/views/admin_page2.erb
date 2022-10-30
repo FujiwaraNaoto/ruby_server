@@ -1,0 +1,87 @@
+<style>
+    #admin_title{
+        color: red;
+        text-align: center
+    }
+
+    #username_list{
+        margin: auto
+    }
+
+    #.user_name_password_list_title{
+        color: red;
+        text-align: center
+    }
+   
+
+</style>
+
+<div id="admin_title"><h1>Admin</h1></div>
+<% require 'sqlite3' %>
+
+<!--dbファイルをここに書く場合は pathは絶対パスで指定すべし-->
+
+<a href="/"><font color="white">Go back to Login page</font></a>
+
+
+<div style="text-align:center">Use list (password list is not shown)</div>
+
+    
+    <form action="/delete_db" method="post">
+    
+        <body>
+                 
+            <table id="username_list" border="1">
+            <tr><p><td>delete?</td><td>id</td><td>name</td></p></tr>
+            <% @all_user_list.each do |row| %>
+                <tr><p><td><input type="checkbox" id="b" name="id[]" value="<%=row[0] %>"></td><td><%= row[0] %></td><td><%= row[1] %></td></p></tr>
+            <% end %>
+            </table>
+                    
+        
+        </body>
+        <div style="text-align:center">
+        <button type="submit" name="example" value="b">Delete</button>
+        </div>
+    </form>
+
+
+<head>
+  <meta charset="utf-8" />
+  <title>sample</title>
+  <style>
+    #wrapper {
+      height: 300px;
+      width: 1000px;
+      overflow-y: scroll;
+      margin: auto
+    }
+
+    #contents {
+      
+      background-color: white;
+    }
+  </style>
+</head>
+
+<br>
+
+<div style="text-align:center">Bulletin Board</div>
+<form action="/delete_bulletin_board" method="post">
+    <body>
+    <div id="wrapper">
+        <div id="contents">
+            <% @bulletin_board_content.each do |content| %>
+            
+                <p><input type="checkbox" id="b" name="delete_comment[]" value="<%= content[0] %>"><%= content[2] %>:<%=content[3] %>:<%= h(content[4]) %></p>
+
+            <% end %>
+        </div>
+    </div>
+    </body>
+    <div style="text-align:center">
+    <button type="submit" name="example" value="b">Delete</button>
+    </div>
+</form>
+
+

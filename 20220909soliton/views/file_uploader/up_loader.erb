@@ -1,0 +1,61 @@
+<style>
+
+
+#file_submit_title{
+   text-align: center;
+   color: white
+}
+
+
+#file_menu{
+   text-align: center;
+   color: white
+
+
+}
+
+
+.uploaded_files{
+   
+   position: relative;
+   top: 10px;
+   margin: auto;
+  
+   padding: 10px;
+  
+   width: 50%;
+   background-color: black;
+   border: solid 2px white;
+   align: center
+}
+
+</style>
+
+
+<div style="text-align:center">
+<h1>You can download or upload any file</h1>
+</div>
+
+<div id="file_menu"><h3>Upload files here</h3></div>
+
+<div style="text-align:center">
+   <form action ="/upload_the_file" method="post" enctype="multipart/form-data"><!--送信の際のデータ形式-->
+   <input type = "file" name="file"><!-- file_nameという名前のファイル-->
+   <button type="submit">submit</button>
+   </form>
+</div>
+
+
+
+<div style="text-align:right"><a href="/login_success"><font color="white">Go back to Menu page</font></a></div>
+
+<div id="file_menu"><h3>Uploaded files</h3></div>
+<div class="uploaded_files">
+   <ul style="list-style-type:circle;"color:white>
+   <% @files_path.each do |b| %>
+      <li><a href="/files/<%= b %>"><font color="white"><%= b %></font></a></li>
+   <% end %>
+   </ul>
+</div>
+
+

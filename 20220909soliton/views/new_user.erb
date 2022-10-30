@@ -1,0 +1,42 @@
+<style>
+    #new_user_string{
+        color:red
+    }
+
+    .new_user_main {
+        position: relative;
+        top: 200px;
+        margin: auto;
+        width: 400px;
+        padding: 10px;
+        color :white
+    }
+
+</style>
+
+<body>
+<div class="new_user_main">  
+    <div id="new_user_string"><h2>create your account</h2></div> 
+    <div style="text-align:center">
+    <b><%= @new_user_message %></b>
+    </div>
+
+   
+        <form action="/sign_up" method="post">
+            <div> Username </div>
+            <div>
+            <input type="text" name="new_name" size="40">
+            </div>
+            <div> Password </div>
+            <div><input type="password" name="new_passwd" size="40"></div>
+            <div>
+            <button type="register your account">Register</button>
+            </div>
+        
+        </form>
+   
+    <a href="/"><font color="white">Go back to login page</font></a>
+</div>
+</body>
+
+

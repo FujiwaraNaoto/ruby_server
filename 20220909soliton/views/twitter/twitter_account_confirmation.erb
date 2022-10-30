@@ -1,0 +1,62 @@
+
+
+<style>
+.new_twitter_account_register_confirmation {
+    position: relative;
+    top: 20spx;
+    margin: auto;
+    width: 500px;
+    padding: 10px;
+    color :white
+}
+
+#submit_button{
+    margin: auto
+}
+
+
+</style>
+
+
+<div class="new_twitter_account_register">  
+<body>
+<div style="text-align:center"> 
+<font color="red"><h2>Make sure that your input was correct.</h2></font>
+</div>    
+
+    <div style="text-align:center"> your account name of twitter is <%= @account_name %> </div>
+    <div style="text-align:center"> Twitter API of <%= @account_name %> is <%= @api_key %> </div>
+    <div style="text-align:center"> Twitter API Secret of <%= @account_name %> is <%= @api_secret %> </div>
+    <div style="text-align:center"> Twitter Token of <%= @account_name %> is <%= @token %> </div>
+    <div style="text-align:center"> Twitter Token Secret of <%= @account_name %> is <%= @token_secret %> </div>
+
+    </body>
+</div>
+
+
+<div style="text-align:center">
+Are you sure that your input was correct?
+</div>
+
+
+<table id="submit_button">
+    <tr>
+    <td>
+    <form action="/twitter_registration_completed" method="post">
+        <input type="hidden" name="twitter_account_name" value="<%= @account_name %>">
+        <input type="hidden" name="twitter_api_key" value="<%= @api_key %>">
+        <input type="hidden" name="twitter_api_secret" value="<%= @api_secret %>">
+        <input type="hidden" name="twitter_token" value="<%= @token %>">
+        <input type="hidden" name="twitter_token_secret" value="<%= @token_secret %>">
+        <button type="submit">Yes</button>
+    </form>
+    </td>
+    <td>
+    <!--戻る処理-->
+    <form action='/register_twitter_account' method="get">
+        <button type="submit">No</button>
+    </form>
+    </td>
+    </tr>
+</table>
+

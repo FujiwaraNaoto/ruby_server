@@ -1,0 +1,79 @@
+
+<style>
+.new_twitter_account_register {
+    position: relative;
+    top: 20spx;
+    margin: auto;
+    width: 500px;
+    padding: 10px;
+    color :white
+}
+
+
+#account_name{
+    position: relative;
+    left:10px
+}
+
+
+#API_KEY{
+    position: relative;
+    left:57px
+}
+
+#API_SECRET{
+    position: relative;
+    left:27px
+}
+
+#TOKEN{
+    position: relative;
+    left:66px
+}
+
+#TOKEN_SECRET{
+    position: relative;
+    left:0px
+}
+
+#submit_button{
+    position: relative;
+    left:160px
+}
+
+</style>
+
+<!-- Twitter アカウントの登録フォーム-->
+
+<div style="text-align:right">
+<a href="/twitter_search"><font color="white">Go back to the Twitter account list page</font></a>
+</div>
+
+<body>
+<div class="new_twitter_account_register">  
+    <font color="red"><h2>Register your Twitter account</h2></font>
+    
+    <font color="red"><h3>Notation</h3></font>
+    <font color="red"><h5>Twitter account name should be implemented with '@'</h5></font>
+    <form action="/twitter_account_confirmation" method="post">
+        <div>account name
+        <input id="account_name" type="text" name="account_name"><!--パラメータ名がuser-->
+        </div>
+        <div >API KEY
+        <input  id="API_KEY" type="text" name="api_key"><!-- API key-->
+        </div>
+        <div>API SECRET
+        <input id="API_SECRET" type="text" name="api_secret"><!--API secret-->
+        </div>
+        <div>TOKEN
+        <input id="TOKEN" type="text" name="token"><!--API token-->
+        </div>
+        <div>TOKEN SECRET
+        <input id="TOKEN_SECRET" type="text" name="token_secret"><!--token secret-->
+        </div>
+        <button id="submit_button" type="submit">submit</button>
+        <p></p>
+    </form>
+
+</div>
+</body>

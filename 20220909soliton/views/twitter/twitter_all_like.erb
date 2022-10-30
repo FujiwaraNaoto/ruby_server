@@ -1,0 +1,33 @@
+<div style="text-align:center">
+<h1>Your "like" history on Twitter</h1>
+</div>
+
+<% if @all_like.empty? %>
+<div style="text-align:center">
+    <h3>It seems you haven't pushed like button</h3>
+    <a href="/twitter_search"><font color="white">Go back to the previous page</font></a>
+</div>
+<% else %>
+    <div style="text-align:right">
+    <a href="/twitter_search"><font color="white">Go back to the previous page</font></a>
+    </div>
+    <table border="1">
+        <tr><p>
+            <td>account name</td>
+            <td>tweet url</td>
+            <td>content</td>
+            <td>tweet time</td>
+            <td>when search</td>
+        </p></tr>
+        <% @all_like.each do |row| %>
+            <tr><p>
+            <td><%= row[2] %></td><!-- account name -->
+            <td><%= row[3] %></td><!-- tweet_url -->
+            <td><%= row[4] %></td><!-- content -->
+            <td><%= row[5] %></td><!-- tweet_time -->
+            <td><%= row[6] %></td><!-- when_search -->
+            </p></tr>
+        <% end %>   
+    </table>
+
+<% end %>

@@ -1,0 +1,67 @@
+<style>
+    #url_and_content{
+        margin: auto
+    }
+
+    #twitter_time_line_box{
+        margin: auto
+    }
+
+    #the_number_of_messages{
+        position: relative;
+        left:-31px
+    }
+
+</style>
+
+<div style="text-align:center">
+<h1>Get Time Line through Twitter</h1>
+</div>
+
+
+<form action ="/twitter_time_line" method="post">
+    <div style="text-align:center" >
+                
+        <div>keyword(English)
+        <input type="text" name="keyword">
+        </div>
+
+        <div id="the_number_of_messages">
+        The number of messages
+        <input type="number" name="cnt" min="0">
+        </div>
+
+        <div>
+        <button type="submit">Time Line</button> 
+        </div>
+    </div>
+</form>
+
+
+<div style="text-align:right">
+    <a href="/twitter_search"><font color="white">Go back to the Twitter account list page</font></a>
+</div>
+
+<% if @user_twitter_time_line.empty? then %>
+    <div style="text-align:center" >
+    Input a keyword related to the content and 
+    the number of contents you wanna get.
+    </div>
+<% else %>
+    <% cnt=1 %>
+    <table id="url_and_content" border="1">
+    <tr><p><td>
+    <div style="text-align:center" >
+    count
+    </div></td>
+    <td><div style="text-align:center" >URL</div></td>
+    <td><div style="text-align:center" >content</div></td></p></tr>
+    <% @user_twitter_time_line.each do |row| %>
+        <tr><p><td><%= cnt %></td>
+        <td><%= row.url %></td>
+        <td><%= row.full_text %></td></p></tr>
+        <% cnt+=1 %>
+    <% end %>
+    </table>
+
+<% end %>

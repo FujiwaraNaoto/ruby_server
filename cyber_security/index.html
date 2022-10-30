@@ -1,0 +1,27 @@
+<html>
+   <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title> OScommandInjection</title>
+   </head>
+   <body> 
+    <div class="commandInjection"><h1>OS command injection sample</h1></div>
+    
+     <div class="content">
+  
+     <h2>Weak file upload system</h2>
+     <form action="upload.php" method="post" enctype="multipart/form-data">
+      file: <input type="file" name="imgfile" size="20">
+     <input type="submit" value="upload">
+     </form>
+
+ 
+    <h2> Secure file upload system</h2>
+    <form action="uploadSecure.php" method="post" enctype="multipart/form-data">
+    file: <input type="file" name="imgfile" size="20">
+    <input type="submit" value="upload">
+    </form>
+
+   </div>
+
+ </body>
+</html>

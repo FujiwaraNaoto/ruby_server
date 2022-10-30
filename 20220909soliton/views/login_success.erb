@@ -1,0 +1,57 @@
+<style>
+
+#login_success_string{
+    color: red
+}
+
+#welcome_user{
+    color: red;
+    text-align: center
+}
+
+.menu_box{
+    position: relative;
+    top: 10px;
+    margin: auto;
+   
+    padding: 10px;
+   
+    width: 50%;
+    background-color: black;
+    border: solid 2px white;
+    align: center
+}
+
+.menu_box p{
+   
+    color: white;
+    text-align: center
+}
+
+#menu{
+    text-align: center;
+    color: white
+}
+
+</style>
+
+<!--メニュー画面 -->
+<div style="text-align:center" id="login_success_string">
+<h1>Login Success</h1>
+<h2><%= Time.now %></h2>
+</div>
+
+<div id="welcome_user"><h2>Welcome <%= @user_login_name %></h2></div>
+
+<!-- rubyのerbファイルでのコメントアウトは このようにする  -->
+<% if false %> 
+<h2>userid <%= @user_login_id %> </h2>
+<% end %>
+<div id="menu"><h3>MENU</h3></div>
+<div class="menu_box">
+    <p><a href="file_upload"><font color="white">File page</font></a></p>
+    <p><a href="twitter_search"><font color="white">Twitter</font></a></p>
+    <p><a href="logout"><font color="white">Logout</font></a></p>
+    <!--<p><a href='/calender'><font color="white">Calender</font></a></p>-->
+    <p><a href='/bulletin_board'><font color="white">Bulletin board</font></a></p>
+</div>

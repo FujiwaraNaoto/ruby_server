@@ -1,0 +1,77 @@
+
+
+<style>
+    
+
+    .login_main {
+    position: relative;
+    top: 200px;
+    margin: auto;
+    width: 400px;
+    padding: 10px;
+    color :white
+    }
+
+
+    input{
+        background-color :black
+    }
+
+    #login_string{
+        color:red
+    }
+
+    body {
+    font-family: Arial;
+    color: #fff;
+    }
+
+    #login_box {
+    color: #000;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 25px;
+    background: linear-gradient(to bottom, #d4d4d4, #fff);
+    }
+
+    /*inputの際に表示される色を白にする*/
+    input[type="text"], input[type="password"] {
+    width: 100%;
+    font-family: Arial;
+    font-size: 14px;
+    color: #fff;
+    padding: 2px;
+    margin-bottom: 2px;
+    background-color: #333;
+    }
+
+</style>
+
+<body>
+
+
+<div class="login_main">  
+    <div id="login_string"><h1>Login</h1></div> 
+    <div id="login_box"> 
+        <form action="/login" method="post">
+            <div> Username </div>
+            <div>
+            <input type="text" name="user" size="40">
+            </div>
+            <div> Password </div>
+            <div><input type="password" name="passwd" size="40"></div>
+            <div>
+            <button id="login_button",type="submit">Login</button> <!--loginボタン-->
+            </div>
+        
+        </form>
+    </div>
+    <a href="/registration"><font color="white">Don't you have your account?</font></a>
+</div>
+</body>
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+<style>
+    #error{
+        color: red;
+        text-align: center
+        /*margin: auto;*/
+    }
+
+    #error_message{
+        color: red;
+        text-align: center;
+        margin: auto;
+    }
+
+</style>
+
+
+
+<div id="error"><h2>Error!</h2></div>
+
+<div style="text-align:center">
+<p><%= @twitter_account_name %></p>
+</div>
+
+<div id="error_message">
+<p>Error message is <%= @twitter_api_error_message %></p>
+</div>
+
+<div style="text-align:center">
+<p><a href='/twitter_search'><font color="white">Go back to Twitter account list page</font></a></p>
+<p><a href='https://qiita.com/ts-3156/items/f35f6f333918f3ffa286'><font color="white">See error for more detail.</font></p>
+</div>
