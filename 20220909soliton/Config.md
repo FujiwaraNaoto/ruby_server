@@ -15,6 +15,7 @@ or
 ```
 sudo [command]
 ```
+## Installing sinatra framework
 
 In order to configurate, you should input those commands
 ```
@@ -26,11 +27,25 @@ sudo gem install sinatra-contrib
 
 ```
 
-In order to run sinatra framework
-main.rb 
+In order to run sinatra framework using main.rb.
+
+First, you need to know your IP address of your PC, using this command
+```
+ifconfig
+```
+Second,in order to run main.rb, input this command.  
 ```
 ruby main.rb -o 0.0.0.0
 ```
+
+Input this sentence into your webbrowser.
+`http://(your IP address):4567`
+
+For example, when your ip address is `192.168.0.9`,then
+`http://192.168.0.9:4567`
+
+
+## Installing SQLite3
 
 
 In order to install sqlite3, you should input those commands
@@ -51,6 +66,7 @@ Also, VSCode extension software,such as
 are useful.
 
 
+## Trouble shooting
 
 if you enter 'make', then, you'll encounter a comment like   
 ```
